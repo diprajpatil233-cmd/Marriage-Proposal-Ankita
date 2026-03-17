@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Very Important Question... 💍</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Proposal Screen -->
+    <div id="proposalScreen" class="screen active">
+        <div class="content">
+            <!-- Decorative Elements -->
+            <div class="heart-decoration">💕</div>
+            
+            <!-- The Big Question -->
+            <h1 class="question-title">Will you marry me? 💍</h1>
+            
+            <!-- Subtitle -->
+            <p class="subtitle">I promise to love you forever...</p>
+            
+            <!-- Button Container -->
+            <div class="button-container">
+                <button id="yesBtn" class="btn btn-yes">Yes ❤️</button>
+                <button id="noBtn" class="btn btn-no">No</button>
+            </div>
+
+            <!-- Click Counter / Encouragement -->
+            <div id="encouragement" class="encouragement hidden">
+                <p id="encouragementText"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Screen -->
+    <div id="successScreen" class="screen">
+        <div class="content success-content">
+            <!-- Celebration Animation -->
+            <div class="celebration-emoji" id="celebrationEmoji">🎉</div>
+            
+            <!-- Success Message -->
+            <h1 class="success-title">I knew you'd say Yes!</h1>
+            
+            <!-- Subheading -->
+            <h2 class="success-subtitle">Let's get married! 💒❤️</h2>
+            
+            <!-- GIF Container -->
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/MeIucAjPKoA120R7sN/giphy.gif" 
+                     alt="Happy Dance" 
+                     class="celebration-gif"
+                     onerror="this.src='https://media.giphy.com/media/l0HlTy9x--WgGXhDO/giphy.gif'">
+            </div>
+
+            <!-- Additional Messages -->
+            <div class="message-box">
+                <p class="love-message">You've made me the happiest person alive! 🥂</p>
+                <p class="date-stamp" id="dateStamp"></p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="success-buttons">
+                <button id="celebrateBtn" class="btn btn-celebrate">🎊 Celebrate More!</button>
+                <button id="resetBtn" class="btn btn-reset">✨ Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <div id="confetti-container" class="confetti-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,528 @@
+/* ========== Global Styles ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe4e1 0%, #ffccdd 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.5s ease;
+}
+
+/* ========== Screen Management ========== */
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 10;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 20;
+}
+
+.content {
+    text-align: center;
+    padding: 40px;
+    animation: slideIn 0.8s ease-out;
+}
+
+/* ========== Proposal Screen ========== */
+.heart-decoration {
+    font-size: 60px;
+    margin-bottom: 30px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.question-title {
+    color: #d81b60;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: fadeInDown 0.6s ease-out;
+    text-shadow: 0 2px 4px rgba(216, 27, 96, 0.1);
+}
+
+.subtitle {
+    color: #c2185b;
+    font-size: 20px;
+    margin-bottom: 50px;
+    font-weight: 300;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+    letter-spacing: 0.5px;
+}
+
+.button-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* ========== Button Styles ========== */
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    outline: none;
+    user-select: none;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Yes Button */
+.btn-yes {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 16px 40px;
+    font-size: 20px;
+    position: relative;
+    z-index: 20;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.btn-yes:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+}
+
+/* No Button */
+.btn-no {
+    background: linear-gradient(135deg, #f44336, #da190b);
+    color: white;
+    position: absolute;
+    z-index: 10;
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.btn-no:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(244, 67, 54, 0.4);
+}
+
+/* ========== Encouragement Messages ========== */
+.encouragement {
+    margin-top: 40px;
+    font-size: 18px;
+    color: #c2185b;
+    font-weight: 500;
+    animation: slideUp 0.5s ease-out;
+    opacity: 1;
+}
+
+.encouragement.hidden {
+    display: none;
+    opacity: 0;
+}
+
+#encouragementText {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ========== Success Screen ========== */
+.success-content {
+    animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.celebration-emoji {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    display: inline-block;
+}
+
+.success-title {
+    color: #d81b60;
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease-out;
+    text-shadow: 0 4px 8px rgba(216, 27, 96, 0.2);
+}
+
+.success-subtitle {
+    color: #f44336;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* ========== GIF Container ========== */
+.gif-container {
+    margin: 30px 0;
+    animation: zoomIn 0.8s ease-out 0.4s both;
+}
+
+.celebration-gif {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: imageFloat 3s ease-in-out infinite;
+}
+
+/* ========== Message Box ========== */
+.message-box {
+    background: rgba(216, 27, 96, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    animation: slideUp 0.8s ease-out 0.6s both;
+    border-left: 4px solid #d81b60;
+}
+
+.love-message {
+    color: #c2185b;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.date-stamp {
+    color: #999;
+    font-size: 14px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ========== Success Buttons ========== */
+.success-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    animation: slideUp 0.8s ease-out 0.8s both;
+}
+
+.btn-celebrate {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    color: white;
+    padding: 16px 35px;
+    font-size: 18px;
+}
+
+.btn-celebrate:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 107, 107, 0.4);
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 16px 35px;
+    font-size: 18px;
+}
+
+.btn-reset:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* ========== Confetti Container ========== */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.confetti {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+/* ========== Animations ========== */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.1) translateY(-15px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes imageFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+@keyframes confettiSpin {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg) scale(0);
+    }
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+    .question-title {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .button-container {
+        gap: 20px;
+    }
+
+    .btn-yes {
+        padding: 14px 28px;
+        font-size: 18px;
+    }
+
+    .btn-no {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+
+    .success-title {
+        font-size: 42px;
+    }
+
+    .success-subtitle {
+        font-size: 26px;
+    }
+
+    .celebration-gif {
+        max-height: 300px;
+    }
+
+    .message-box {
+        padding: 20px;
+    }
+
+    .love-message {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+
+    .question-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .heart-decoration {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-yes,
+    .btn-no {
+        padding: 14px 40px;
+        width: 90%;
+        position: static !important;
+        transform: none !important;
+    }
+
+    .celebration-emoji {
+        font-size: 60px;
+    }
+
+    .success-title {
+        font-size: 32px;
+    }
+
+    .success-subtitle {
+        font-size: 22px;
+    }
+
+    .celebration-gif {
+        max-height: 250px;
+    }
+
+    .success-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-celebrate,
+    .btn-reset {
+        width: 90%;
+        padding: 14px 20px;
+    }
+
+    .message-box {
+        padding: 15px;
+        margin: 20px 0;
+    }
+
+    .encouragement {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+}
+
+/* ========== Hidden Class ========== */
+.hidden {
+    display: none !important;
+}
